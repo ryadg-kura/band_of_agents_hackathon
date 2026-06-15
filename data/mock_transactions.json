@@ -1,0 +1,53 @@
+[
+  {
+    "id": "TXN-001",
+    "amount": 8500,
+    "currency": "USD",
+    "from_account": "ACC-4421",
+    "from_name": "Jean Dupont",
+    "from_profile": "client depuis 7 ans, transactions régulières entre 5000 et 12000 USD",
+    "from_avg_transaction": 7200,
+    "from_transaction_count_this_month": 3,
+    "to": "Fournisseur Dupont SARL",
+    "to_country": "France",
+    "to_profile": "contrepartie connue, 12 transactions passées sans incident",
+    "time_utc": "10:23",
+    "day_of_week": "Tuesday",
+    "flagged_by": "règle automatique montant > 5000 USD",
+    "scenario": "false_positive"
+  },
+  {
+    "id": "TXN-002",
+    "amount": 47500,
+    "currency": "USD",
+    "from_account": "ACC-8821",
+    "from_name": "Tech Solutions LLC",
+    "from_profile": "compte ouvert il y a 3 mois, 2ème virement important ce mois",
+    "from_avg_transaction": 15000,
+    "from_transaction_count_this_month": 4,
+    "to": "Dubai Trading LLC",
+    "to_country": "UAE",
+    "to_profile": "société créée il y a 6 semaines, 1ère transaction avec ce client",
+    "time_utc": "23:47",
+    "day_of_week": "Sunday",
+    "flagged_by": "règle nouvelle contrepartie + montant élevé",
+    "scenario": "money_shot"
+  },
+  {
+    "id": "TXN-003",
+    "amount": 890000,
+    "currency": "USD",
+    "from_account": "ACC-0012",
+    "from_name": "Global Ventures Inc",
+    "from_profile": "compte ouvert il y a 2 semaines, aucun historique",
+    "from_avg_transaction": 0,
+    "from_transaction_count_this_month": 1,
+    "to": "Pantera Shell Corp",
+    "to_country": "Panama",
+    "to_profile": "société offshore, aucun historique de transactions",
+    "time_utc": "03:15",
+    "day_of_week": "Saturday",
+    "flagged_by": "règle montant > 500000 USD",
+    "scenario": "immediate_escalation"
+  }
+]

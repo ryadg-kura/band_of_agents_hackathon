@@ -1,0 +1,10 @@
+{
+  "entries": [
+    {"name": "Pantera Holdings Corp", "country": "Panama", "list": "OFAC", "type": "entity"},
+    {"name": "Pantera Shell Corp", "country": "Panama", "list": "OFAC", "type": "entity"},
+    {"name": "Al-Rashid Trading", "country": "Syria", "list": "EU", "type": "entity"},
+    {"name": "Viktor Kozlov", "country": "Russia", "list": "UN", "type": "individual"},
+    {"name": "Black Sea Finance Ltd", "country": "Cyprus", "list": "OFAC", "type": "entity"},
+    {"name": "Ibrahim Al-Farsi", "country": "Iran", "list": "OFAC", "type": "individual"}
+  ]
+}
