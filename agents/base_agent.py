@@ -23,13 +23,14 @@ Format exact :
 class BaseAgent:
     def __init__(self, agent_name: str, model_name: str = GROQ_MODEL):
         self.agent_name = agent_name
-        self.model_name = model_name
-        self.client = Groq(api_key=os.environ["GROQ_API_KEY"])
+        self._client = Groq(api_key=os.environ["GROQ_API_KEY"])
+        self._model = model_name
 
     def _call_llm(self, prompt: str) -> dict:
-        response = self.client.chat.completions.create(
-            model=self.model_name,
+        response = self._client.chat.completions.create(
+            model=self._model,
             messages=[{"role": "user", "content": prompt}],
+            temperature=0.1,
         )
         text = response.choices[0].message.content.strip()
         if text.startswith("```"):

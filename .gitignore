@@ -2,6 +2,11 @@
 .env
 .env.local
 .env.*.local
+agent_config.yaml
+.band_room_cache.json
+
+.claude/
+CLAUDE.md
 
 # Docs internes
 docs/
