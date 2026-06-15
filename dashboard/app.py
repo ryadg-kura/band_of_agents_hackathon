@@ -1,3 +1,10 @@
+import os
+import sys
+
+# Ensure the project root is first in sys.path so our local band/client.py
+# takes precedence over the installed band-sdk package.
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import streamlit as st
 import time
 from dotenv import load_dotenv
