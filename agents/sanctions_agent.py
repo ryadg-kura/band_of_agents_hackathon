@@ -37,7 +37,7 @@ class SanctionsAgent(BaseAgent):
             entry_words = set(entry_lower.split())
             name_words = set(name_lower.split())
             common = entry_words & name_words
-            if entry_words and len(common) / len(entry_words) >= 0.7:
+            if entry_words and len(common) / len(entry_words) >= 0.6:
                 return {"matched": True, "entry": entry, "score": len(common) / len(entry_words), "list": entry["list"]}
         return {"matched": False}
 

@@ -6,6 +6,9 @@
 # Docs internes
 docs/
 
+# Smoke tests
+test_smoke.py
+
 # Python
 __pycache__/
 *.py[cod]

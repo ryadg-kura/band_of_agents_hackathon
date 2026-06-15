@@ -1,13 +1,12 @@
 import os
 import json
-import google.generativeai as genai
+from groq import Groq
 from dotenv import load_dotenv
 from agents.models import AgentOutput, RiskLevel, Vote
 
 load_dotenv()
-genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
 
-GEMINI_MODEL = "gemini-2.0-flash"
+GROQ_MODEL = "llama-3.3-70b-versatile"
 
 OUTPUT_FORMAT_INSTRUCTION = """
 Réponds UNIQUEMENT avec un objet JSON valide, sans markdown, sans backticks.
@@ -22,13 +21,17 @@ Format exact :
 
 
 class BaseAgent:
-    def __init__(self, agent_name: str, model_name: str = GEMINI_MODEL):
+    def __init__(self, agent_name: str, model_name: str = GROQ_MODEL):
         self.agent_name = agent_name
-        self.model = genai.GenerativeModel(model_name)
+        self.model_name = model_name
+        self.client = Groq(api_key=os.environ["GROQ_API_KEY"])
 
     def _call_llm(self, prompt: str) -> dict:
-        response = self.model.generate_content(prompt)
-        text = response.text.strip()
+        response = self.client.chat.completions.create(
+            model=self.model_name,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        text = response.choices[0].message.content.strip()
         if text.startswith("```"):
             text = text.split("```")[1]
             if text.startswith("json"):
